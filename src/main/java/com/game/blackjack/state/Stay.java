@@ -2,9 +2,7 @@ package com.game.blackjack.state;
 
 import java.util.Optional;
 
-public class Stay {
-    public static final GamePoint POINT_OF_STAY =new GamePoint(20);
-    private static final BattingRate RATE_OF_STAY  = new BattingRate(1);
+public class Stay implements Finished{
     public boolean isRightState(GamePoint point) {
         return   !point.isOver(POINT_OF_STAY);
     }

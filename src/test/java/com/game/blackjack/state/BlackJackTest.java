@@ -3,6 +3,8 @@ package com.game.blackjack.state;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static com.game.blackjack.state.Finished.POINT_OF_BUST;
+import static com.game.blackjack.state.Finished.POINT_OF_STAY;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -21,8 +23,8 @@ public class BlackJackTest {
     @Test
     void 블랙잭이면_1_5배의_배율을_받는다(){
         assertEquals(blackJack.earningRate(new GamePoint(BLACKJACK)).get(),new BattingRate(1.5));
-        assertTrue(blackJack.earningRate(new GamePoint(20)).isEmpty());
-        assertTrue(blackJack.earningRate(new GamePoint(22)).isEmpty());
+        assertTrue(blackJack.earningRate(POINT_OF_STAY).isEmpty());
+        assertTrue(blackJack.earningRate(POINT_OF_BUST).isEmpty());
 
     }
 }
