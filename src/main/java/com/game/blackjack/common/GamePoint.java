@@ -1,4 +1,4 @@
-package com.game.blackjack.state;
+package com.game.blackjack.common;
 
 public class GamePoint {
     private final int point;

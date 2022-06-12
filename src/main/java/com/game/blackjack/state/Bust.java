@@ -1,6 +1,9 @@
 package com.game.blackjack.state;
 
 
+import com.game.blackjack.common.BattingRate;
+import com.game.blackjack.common.GamePoint;
+
 import java.util.Optional;
 
 public class Bust implements Finished {

@@ -1,5 +1,7 @@
 package com.game.blackjack.state;
 
+import com.game.blackjack.common.BattingRate;
+import com.game.blackjack.common.GamePoint;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
