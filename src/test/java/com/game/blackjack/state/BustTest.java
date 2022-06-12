@@ -18,7 +18,7 @@ public class BustTest {
     }
     @Test
     void 버스트는_배율이_0배이다(){
-        assertEquals(bust.earningRate(new GamePoint(22)),new BattingRate(0));
-        assertEquals(bust.earningRate(new GamePoint(21)),new BattingRate(1));
+        assertEquals(bust.earningRate(new GamePoint(22)).get(),new BattingRate(0));
+        assertTrue(bust.earningRate(new GamePoint(21)).isEmpty());
     }
 }

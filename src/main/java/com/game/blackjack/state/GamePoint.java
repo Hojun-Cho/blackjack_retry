@@ -7,10 +7,12 @@ public class GamePoint {
         this.point = point;
     }
 
-    public boolean isOver(GamePoint target) {
+    public boolean isSameOrOver(GamePoint target) {
+        return this.point >= target.point;
+    }
+    public  boolean isOver(GamePoint target){
         return this.point > target.point;
     }
-
     @Override
     public boolean equals(Object obj) {
         return ((GamePoint) obj).point == this.point;
