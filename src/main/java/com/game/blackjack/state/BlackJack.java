@@ -1,17 +1,17 @@
 package com.game.blackjack.state;
 
 public class BlackJack {
-    private static final int POINT_OF_BLACKJACK = 21;
-    private static final double RATE_OF_BLACKJACK = 1.5;
-    public static final int RATE_OF_NOTHING = 1;
+    public static final GamePoint POINT_OF_BLACKJACK = new GamePoint(21);
+    private static final BattingRate RATE_OF_BLACKJACK = new BattingRate(1.5);
+    public static final BattingRate RATE_OF_NOTHING = new BattingRate(1);
 
-    public boolean isThisRightState(GamePoint point) {
-        return point.equals(new GamePoint(POINT_OF_BLACKJACK));
+    public boolean isRightState(GamePoint point) {
+        return point.equals(POINT_OF_BLACKJACK);
     }
 
     public BattingRate earningRate(GamePoint point) {
-        if(isThisRightState(point))
-            return new BattingRate(RATE_OF_BLACKJACK);
-        return new BattingRate(RATE_OF_NOTHING);
+        if(isRightState(point))
+            return RATE_OF_BLACKJACK;
+        return RATE_OF_NOTHING;
     }
 }

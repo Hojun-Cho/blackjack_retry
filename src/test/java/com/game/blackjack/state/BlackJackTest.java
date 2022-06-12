@@ -15,8 +15,8 @@ public class BlackJackTest {
     }
     @Test
     void 점수를_받아서_블랙잭인지_확인한다(){
-        assertTrue(blackJack.isThisRightState(new GamePoint(BLACKJACK)));
-        assertFalse(blackJack.isThisRightState(new GamePoint(20)));
+        assertTrue(blackJack.isRightState(new GamePoint(BLACKJACK)));
+        assertFalse(blackJack.isRightState(new GamePoint(20)));
     }
     @Test
     void 블랙잭이면_1_5배의_배율을_받는다(){
