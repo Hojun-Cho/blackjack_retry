@@ -16,13 +16,13 @@ public class UsingCardsTest {
     @Test
     void BALCKJACK_을_맞추는경우() {
         cards.add(new Card(Pattern.DIAMOND, Symbol.ACE));
-        assertEquals(cards.getPoint(), new GamePoint(11));
+        assertEquals(cards.calculatePoint(), new GamePoint(11));
 
         cards.add(new Card(Pattern.DIAMOND,Symbol.QUEEN));
-        assertEquals(cards.getPoint(), POINT_OF_BLACKJACK);
+        assertEquals(cards.calculatePoint(), POINT_OF_BLACKJACK);
 
         cards.add(new Card(Pattern.DIAMOND,Symbol.QUEEN));
-        assertEquals(cards.getPoint(), POINT_OF_BLACKJACK);
+        assertEquals(cards.calculatePoint(), POINT_OF_BLACKJACK);
     }
     @Test
     void ACE_를_11점으로_계산하면_GAME_OVER되는경우_1점으로_계산(){
@@ -30,7 +30,7 @@ public class UsingCardsTest {
         cards.add(new Card(Pattern.DIAMOND,Symbol.FIVE));
         cards.add(new Card(Pattern.DIAMOND,Symbol.SIX));
 
-        assertEquals(cards.getPoint(), new GamePoint(12));
+        assertEquals(cards.calculatePoint(), new GamePoint(12));
     }
     @Test
     void 정렬_테스트(){
@@ -38,6 +38,6 @@ public class UsingCardsTest {
         cards.add(new Card(Pattern.DIAMOND,Symbol.SIX));
         cards.add(new Card(Pattern.DIAMOND, Symbol.ACE));
 
-        assertEquals(cards.getPoint(), new GamePoint(12));
+        assertEquals(cards.calculatePoint(), new GamePoint(12));
     }
 }

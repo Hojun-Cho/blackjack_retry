@@ -10,29 +10,39 @@ import static com.game.blackjack.state.Finished.POINT_OF_ACE_HIGH;
 import static com.game.blackjack.state.Finished.POINT_OF_BLACKJACK;
 
 public class UsingCards {
-    private final List<Card> cards = new ArrayList<>();
+    private final List<Card> cards ;
+    public UsingCards(){
+        cards = new ArrayList<>();
+    }
+    public UsingCards(UsingCards input) {
+        this.cards = new ArrayList<>(input.cards);
+    }
 
     public void add(Card card) {
         cards.add(card);
     }
-    public void addAll(List<Card> cards){
+
+    public void addAll(List<Card> cards) {
         this.cards.addAll(cards);
     }
-    public GamePoint getPoint() {
+
+    public GamePoint calculatePoint() {
         return new GamePoint(cards.stream().sorted(Comparator.comparing(Card::getPoint).reversed())
                 .map(card -> card.getPoint())
                 .reduce(0, (acc, point) -> acc + determineAddPoint(acc, point)));
 
     }
-    private int determineAddPoint(int acc, int point){
-        if(Symbol.ACE.isSamePoint(point)){
+
+    private int determineAddPoint(int acc, int point) {
+        if (Symbol.ACE.isSamePoint(point)) {
             return determineAcePoint(acc);
         }
         return point;
     }
-    private int determineAcePoint(int acc){
+
+    private int determineAcePoint(int acc) {
         GamePoint total = new GamePoint(acc);
-        if(total.isSameOrOver(POINT_OF_BLACKJACK) || total.add(POINT_OF_ACE_HIGH).isOver(POINT_OF_BLACKJACK) )
+        if (total.isSameOrOver(POINT_OF_BLACKJACK) || total.add(POINT_OF_ACE_HIGH).isOver(POINT_OF_BLACKJACK))
             return 1;
         return 11;
     }
