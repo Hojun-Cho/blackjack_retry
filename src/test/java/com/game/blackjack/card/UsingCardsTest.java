@@ -4,6 +4,8 @@ import com.game.blackjack.common.GamePoint;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static com.game.blackjack.card.UsingCards.POINT_LOW_ACE;
+import static com.game.blackjack.state.Finished.POINT_OF_ACE_HIGH;
 import static com.game.blackjack.state.Finished.POINT_OF_BLACKJACK;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,7 +18,7 @@ public class UsingCardsTest {
     @Test
     void BALCKJACK_을_맞추는경우() {
         cards.add(new Card(Pattern.DIAMOND, Symbol.ACE));
-        assertEquals(cards.calculatePoint(), new GamePoint(11));
+        assertEquals(cards.calculatePoint(), new GamePoint(POINT_LOW_ACE));
 
         cards.add(new Card(Pattern.DIAMOND,Symbol.QUEEN));
         assertEquals(cards.calculatePoint(), POINT_OF_BLACKJACK);

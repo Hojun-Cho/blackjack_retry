@@ -10,6 +10,9 @@ import static com.game.blackjack.state.Finished.POINT_OF_ACE_HIGH;
 import static com.game.blackjack.state.Finished.POINT_OF_BLACKJACK;
 
 public class UsingCards {
+    protected static final int POINT_LOW_ACE = 1;
+    protected static final int POINT_HIGH_ACE = 11;
+
     private final List<Card> cards ;
     public UsingCards(){
         cards = new ArrayList<>();
@@ -43,8 +46,8 @@ public class UsingCards {
     private int determineAcePoint(int acc) {
         GamePoint total = new GamePoint(acc);
         if (total.isSameOrOver(POINT_OF_BLACKJACK) || total.add(POINT_OF_ACE_HIGH).isOver(POINT_OF_BLACKJACK))
-            return 1;
-        return 11;
+            return POINT_LOW_ACE;
+        return POINT_HIGH_ACE;
     }
 }
 
