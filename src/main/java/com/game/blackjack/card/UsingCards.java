@@ -15,7 +15,9 @@ public class UsingCards {
     public void add(Card card) {
         cards.add(card);
     }
-
+    public void addAll(List<Card> cards){
+        this.cards.addAll(cards);
+    }
     public GamePoint getPoint() {
         return new GamePoint(cards.stream().sorted(Comparator.comparing(Card::getPoint).reversed())
                 .map(card -> card.getPoint())
