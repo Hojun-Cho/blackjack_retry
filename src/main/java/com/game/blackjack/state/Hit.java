@@ -4,15 +4,10 @@ import com.game.blackjack.common.GamePoint;
 
 import static com.game.blackjack.state.Finished.*;
 
-public class Hit implements State {
+public class Hit implements Running {
 
     public boolean isOkayDraw(GamePoint point) {
         return isRightState(point);
-    }
-
-    @Override
-    public boolean isRightState(GamePoint point) {
-        return !point.isSameOrOver(POINT_OF_BLACKJACK);
     }
 
     public boolean isFinished(GamePoint point) {

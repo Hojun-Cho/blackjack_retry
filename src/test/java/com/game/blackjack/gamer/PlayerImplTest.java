@@ -1,5 +1,6 @@
 package com.game.blackjack.gamer;
 
+import com.game.blackjack.AppConfig;
 import com.game.blackjack.card.Card;
 import com.game.blackjack.card.Pattern;
 import com.game.blackjack.card.Symbol;
@@ -14,13 +15,13 @@ import static com.game.blackjack.state.Finished.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class PlayerTest {
+public class PlayerImplTest {
     private Player player;
     private final Cash startCash = new Cash(1000);
 
     @BeforeEach
     void init() {
-        player = new Player(startCash);
+        player = AppConfig.player(startCash);
     }
 
     @Test

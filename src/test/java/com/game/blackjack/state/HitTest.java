@@ -4,15 +4,16 @@ import com.game.blackjack.common.GamePoint;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static com.game.blackjack.AppConfig.running;
 import static com.game.blackjack.state.Finished.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 
 public class HitTest {
-    Hit hit;
+    Running hit;
     @BeforeEach
     void init(){
-        hit = new Hit();
+        hit = running();
     }
 
     @Test

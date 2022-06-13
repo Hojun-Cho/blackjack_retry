@@ -32,6 +32,4 @@ public class GamePoint implements Comparable{
         }
         return -1;
     }
-
-
 }
