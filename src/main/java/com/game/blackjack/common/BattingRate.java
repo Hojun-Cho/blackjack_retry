@@ -5,6 +5,9 @@ public class BattingRate  {
     public BattingRate(double rate) {
         this.rate = rate;
     }
+    public double getRate(){
+        return rate;
+    }
 
     @Override
     public boolean equals(Object obj) {

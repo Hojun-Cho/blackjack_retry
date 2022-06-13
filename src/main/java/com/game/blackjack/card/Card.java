@@ -1,7 +1,5 @@
 package com.game.blackjack.card;
 
-import com.game.blackjack.common.GamePoint;
-
 public class Card {
     private final Symbol symbol;
     private final Pattern pattern;
