@@ -18,18 +18,21 @@ public enum Symbol {
     QUEEN("q", 10);
 
     private final String mark;
-    private final GamePoint point;
+    private final int point;
 
     Symbol(String mark, int point) {
         this.mark = mark;
-        this.point = new GamePoint(point);
+        this.point = point;
     }
 
     public String getMark() {
         return mark;
     }
 
-    public GamePoint getPoint() {
+    public int getPoint() {
         return point;
+    }
+    public boolean isSamePoint(int point){
+       return this.point == point;
     }
 }
