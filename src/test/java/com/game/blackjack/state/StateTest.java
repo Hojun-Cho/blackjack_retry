@@ -14,8 +14,8 @@ public class StateTest {
     }
     @Test
     void 점수에_따라서_인스턴스를_생성한다(){
-         assertTrue(  hit.getState(POINT_OF_BLACKJACK) instanceof BlackJack);
-        assertTrue( hit.getState(POINT_OF_BUST) instanceof Bust);
-        assertTrue( hit.getState(POINT_OF_STAY) instanceof Stay);
+         assertTrue(  hit.getFinishedState(POINT_OF_BLACKJACK) instanceof BlackJack);
+        assertTrue( hit.getFinishedState(POINT_OF_BUST) instanceof Bust);
+        assertTrue( hit.getFinishedState(POINT_OF_STAY) instanceof Stay);
     }
 }

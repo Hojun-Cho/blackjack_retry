@@ -24,5 +24,12 @@ public class HitTest {
         assertFalse(hit.isOkayDraw(POINT_OF_BLACKJACK));
         assertFalse(hit.isOkayDraw(POINT_OF_BUST));
     }
+    @Test
+    void _21점과_같거나_크다면_finished이다(){
+        assertTrue(hit.isFinished(new GamePoint(21)));
+        assertTrue(hit.isFinished(new GamePoint(22)));
+
+        assertFalse(hit.isFinished(new GamePoint(20)));
+    }
 
 }

@@ -1,11 +1,10 @@
 package com.game.blackjack.state;
 
-import com.game.blackjack.card.UsingCards;
 import com.game.blackjack.common.GamePoint;
 
 import static com.game.blackjack.state.Finished.*;
 
-public class Hit implements  State {
+public class Hit implements State {
 
     public boolean isOkayDraw(GamePoint point) {
         return isRightState(point);
@@ -16,17 +15,18 @@ public class Hit implements  State {
         return !point.isSameOrOver(POINT_OF_BLACKJACK);
     }
 
-    public  static Finished getState(GamePoint point) {
+    public boolean isFinished(GamePoint point) {
+        return point.isSameOrOver(POINT_OF_BLACKJACK);
+    }
+
+    public Finished getFinishedState(GamePoint point) {
         if (point.equals(POINT_OF_BLACKJACK)) {
             return new BlackJack();
         }
         if (point.isSameOrOver(POINT_OF_BUST)) {
             return new Bust();
         }
-        if (!point.isOver(POINT_OF_STAY)) {
-            return new Stay();
-        }
-        throw new IllegalArgumentException();
+        return new Stay();
     }
 
 }
